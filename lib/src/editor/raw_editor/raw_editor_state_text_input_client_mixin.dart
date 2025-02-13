@@ -76,7 +76,8 @@ mixin RawEditorStateTextInputClientMixin on EditorState
           inputType: TextInputType.multiline,
           readOnly: widget.configurations.readOnly,
           inputAction: widget.configurations.textInputAction,
-          enableSuggestions: !widget.configurations.readOnly,
+          autocorrect: widget.configurations.autocorrect,
+          enableSuggestions: widget.configurations.enableSuggestions && !widget.configurations.readOnly,
           keyboardAppearance: widget.configurations.keyboardAppearance ??
               CupertinoTheme.maybeBrightnessOf(context) ??
               Theme.of(context).brightness,

@@ -100,6 +100,8 @@ class QuillRawEditorConfigurations extends Equatable {
     this.magnifierConfiguration,
     this.onPerformAction,
     this.customLeadingBuilder,
+    this.enableSuggestions = true,
+    this.autocorrect = true,
   });
 
   /// Controls the document being edited.
@@ -333,6 +335,24 @@ class QuillRawEditorConfigurations extends Equatable {
   ///
   /// ```
   final Brightness? keyboardAppearance;
+
+  //// If true, keyboard suggestions will be enabled, allowing the keyboard
+  /// to offer suggestions, corrections, and autocomplete options while typing.
+  ///
+  /// True by default.
+  ///
+  /// If false, keyboard suggestions will be disabled, and no suggestions or
+  /// autocomplete will be provided while typing.
+  final bool enableSuggestions;
+
+  /// If true, the keyboard will automatically suggest corrections for
+  /// spelling errors and typos while typing.
+  ///
+  /// True by default.
+  ///
+  /// If false, automatic correction of spelling mistakes will be disabled,
+  /// and the user will need to correct any errors manually.
+  final bool autocorrect;
 
   /// If true, then long-pressing this TextField will select text and show the
   /// cut/copy/paste menu, and tapping will move the text caret.
