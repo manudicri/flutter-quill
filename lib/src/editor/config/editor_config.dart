@@ -227,7 +227,6 @@ class QuillEditorConfig {
   /// Defaults to `false`. Cannot be `null`.
   final bool autoFocus;
 
-
   //// If true, keyboard suggestions will be enabled, allowing the keyboard
   /// to offer suggestions, corrections, and autocomplete options while typing.
   ///
@@ -365,26 +364,20 @@ class QuillEditorConfig {
   final ValueChanged<String>? onLaunchUrl;
 
   // Returns whether gesture is handled
-  final bool Function(
-      TapDownDetails details, TextPosition Function(Offset offset))? onTapDown;
+  final bool Function(TapDownDetails details, TextPosition Function(Offset offset))? onTapDown;
 
   // Returns whether gesture is handled
-  final bool Function(
-      TapUpDetails details, TextPosition Function(Offset offset))? onTapUp;
+  final bool Function(TapUpDetails details, TextPosition Function(Offset offset))? onTapUp;
 
   // Returns whether gesture is handled
-  final bool Function(
-          LongPressStartDetails details, TextPosition Function(Offset offset))?
-      onSingleLongTapStart;
+  final bool Function(LongPressStartDetails details, TextPosition Function(Offset offset))? onSingleLongTapStart;
 
   // Returns whether gesture is handled
-  final bool Function(LongPressMoveUpdateDetails details,
-      TextPosition Function(Offset offset))? onSingleLongTapMoveUpdate;
+  final bool Function(LongPressMoveUpdateDetails details, TextPosition Function(Offset offset))?
+  onSingleLongTapMoveUpdate;
 
   // Returns whether gesture is handled
-  final bool Function(
-          LongPressEndDetails details, TextPosition Function(Offset offset))?
-      onSingleLongTapEnd;
+  final bool Function(LongPressEndDetails details, TextPosition Function(Offset offset))? onSingleLongTapEnd;
 
   final Iterable<EmbedBuilder>? embedBuilders;
   final EmbedBuilder? unknownEmbedBuilder;
@@ -524,10 +517,8 @@ class QuillEditorConfig {
     Brightness? keyboardAppearance,
     ScrollPhysics? scrollPhysics,
     ValueChanged<String>? onLaunchUrl,
-    bool Function(TapDownDetails details, TextPosition Function(Offset offset))?
-        onTapDown,
-    bool Function(TapUpDetails details, TextPosition Function(Offset offset))?
-        onTapUp,
+    bool Function(TapDownDetails details, TextPosition Function(Offset offset))? onTapDown,
+    bool Function(TapUpDetails details, TextPosition Function(Offset offset))? onTapUp,
     Iterable<EmbedBuilder>? embedBuilders,
     TextSpanBuilder? textSpanBuilder,
     EmbedBuilder? unknownEmbedBuilder,
@@ -556,19 +547,16 @@ class QuillEditorConfig {
     bool? autocorrect,
   }) {
     return QuillEditorConfig(
-      customLeadingBlockBuilder:
-          customLeadingBlockBuilder ?? this.customLeadingBlockBuilder,
+      customLeadingBlockBuilder: customLeadingBlockBuilder ?? this.customLeadingBlockBuilder,
       placeholder: placeholder ?? this.placeholder,
-      characterShortcutEvents:
-          characterShortcutEvents ?? this.characterShortcutEvents,
+      characterShortcutEvents: characterShortcutEvents ?? this.characterShortcutEvents,
       spaceShortcutEvents: spaceShortcutEvents ?? this.spaceShortcutEvents,
       checkBoxReadOnly: checkBoxReadOnly ?? this.checkBoxReadOnly,
       disableClipboard: disableClipboard ?? this.disableClipboard,
       scrollable: scrollable ?? this.scrollable,
       onKeyPressed: onKeyPressed ?? this.onKeyPressed,
       scrollBottomInset: scrollBottomInset ?? this.scrollBottomInset,
-      enableAlwaysIndentOnTab:
-          enableAlwaysIndentOnTab ?? this.enableAlwaysIndentOnTab,
+      enableAlwaysIndentOnTab: enableAlwaysIndentOnTab ?? this.enableAlwaysIndentOnTab,
       padding: padding ?? this.padding,
       autoFocus: autoFocus ?? this.autoFocus,
       onTapOutsideEnabled: onTapOutsideEnabled ?? this.onTapOutsideEnabled,
@@ -576,10 +564,8 @@ class QuillEditorConfig {
       showCursor: showCursor ?? this.showCursor,
       paintCursorAboveText: paintCursorAboveText ?? this.paintCursorAboveText,
       readOnlyMouseCursor: readOnlyMouseCursor ?? this.readOnlyMouseCursor,
-      enableInteractiveSelection:
-          enableInteractiveSelection ?? this.enableInteractiveSelection,
-      enableSelectionToolbar:
-          enableSelectionToolbar ?? this.enableSelectionToolbar,
+      enableInteractiveSelection: enableInteractiveSelection ?? this.enableInteractiveSelection,
+      enableSelectionToolbar: enableSelectionToolbar ?? this.enableSelectionToolbar,
       minHeight: minHeight ?? this.minHeight,
       maxHeight: maxHeight ?? this.maxHeight,
       maxContentWidth: maxContentWidth ?? this.maxContentWidth,
@@ -595,29 +581,22 @@ class QuillEditorConfig {
       textSpanBuilder: textSpanBuilder ?? this.textSpanBuilder,
       unknownEmbedBuilder: unknownEmbedBuilder ?? this.unknownEmbedBuilder,
       customStyleBuilder: customStyleBuilder ?? this.customStyleBuilder,
-      customRecognizerBuilder:
-          customRecognizerBuilder ?? this.customRecognizerBuilder,
+      customRecognizerBuilder: customRecognizerBuilder ?? this.customRecognizerBuilder,
       searchConfig: searchConfig ?? this.searchConfig,
-      linkActionPickerDelegate:
-          linkActionPickerDelegate ?? this.linkActionPickerDelegate,
-      floatingCursorDisabled:
-          floatingCursorDisabled ?? this.floatingCursorDisabled,
-      textSelectionControls:
-          textSelectionControls ?? this.textSelectionControls,
+      linkActionPickerDelegate: linkActionPickerDelegate ?? this.linkActionPickerDelegate,
+      floatingCursorDisabled: floatingCursorDisabled ?? this.floatingCursorDisabled,
+      textSelectionControls: textSelectionControls ?? this.textSelectionControls,
       customShortcuts: customShortcuts ?? this.customShortcuts,
       customActions: customActions ?? this.customActions,
       detectWordBoundary: detectWordBoundary ?? this.detectWordBoundary,
       customLinkPrefixes: customLinkPrefixes ?? this.customLinkPrefixes,
       dialogTheme: dialogTheme ?? this.dialogTheme,
       contextMenuBuilder: contextMenuBuilder ?? this.contextMenuBuilder,
-      contentInsertionConfiguration:
-          contentInsertionConfiguration ?? this.contentInsertionConfiguration,
+      contentInsertionConfiguration: contentInsertionConfiguration ?? this.contentInsertionConfiguration,
       editorKey: editorKey ?? this.editorKey,
-      textSelectionThemeData:
-          textSelectionThemeData ?? this.textSelectionThemeData,
+      textSelectionThemeData: textSelectionThemeData ?? this.textSelectionThemeData,
       requestKeyboardFocusOnCheckListChanged:
-          requestKeyboardFocusOnCheckListChanged ??
-              this.requestKeyboardFocusOnCheckListChanged,
+          requestKeyboardFocusOnCheckListChanged ?? this.requestKeyboardFocusOnCheckListChanged,
       textInputAction: textInputAction ?? this.textInputAction,
       enableScribble: enableScribble ?? this.enableScribble,
       onScribbleActivated: onScribbleActivated ?? this.onScribbleActivated,
