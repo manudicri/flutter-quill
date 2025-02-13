@@ -81,6 +81,8 @@ class QuillEditorConfig {
     this.readOnlyMouseCursor = SystemMouseCursors.text,
     this.onPerformAction,
     @experimental this.customLeadingBlockBuilder,
+    this.autocorrect = true,
+    this.enableSuggestions = true,
   });
 
   @experimental
@@ -217,6 +219,25 @@ class QuillEditorConfig {
   ///
   /// Defaults to `false`. Cannot be `null`.
   final bool autoFocus;
+
+
+  //// If true, keyboard suggestions will be enabled, allowing the keyboard
+  /// to offer suggestions, corrections, and autocomplete options while typing.
+  ///
+  /// True by default.
+  ///
+  /// If false, keyboard suggestions will be disabled, and no suggestions or
+  /// autocomplete will be provided while typing.
+  final bool enableSuggestions;
+
+  /// If true, the keyboard will automatically suggest corrections for
+  /// spelling errors and typos while typing.
+  ///
+  /// True by default.
+  ///
+  /// If false, automatic correction of spelling mistakes will be disabled,
+  /// and the user will need to correct any errors manually.
+  final bool autocorrect;
 
   /// Whether the [onTapOutside] should be triggered or not.
   ///
@@ -512,6 +533,8 @@ class QuillEditorConfig {
     void Function()? onScribbleActivated,
     EdgeInsets? scribbleAreaInsets,
     void Function(TextInputAction action)? onPerformAction,
+    bool? enableSuggestions,
+    bool? autocorrect,
   }) {
     return QuillEditorConfig(
       customLeadingBlockBuilder:
@@ -581,6 +604,8 @@ class QuillEditorConfig {
       onScribbleActivated: onScribbleActivated ?? this.onScribbleActivated,
       scribbleAreaInsets: scribbleAreaInsets ?? this.scribbleAreaInsets,
       onPerformAction: onPerformAction ?? this.onPerformAction,
+      enableSuggestions: enableSuggestions ?? this.enableSuggestions,
+      autocorrect: autocorrect ?? this.autocorrect,
     );
   }
 }
