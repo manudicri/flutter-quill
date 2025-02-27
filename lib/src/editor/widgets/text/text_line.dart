@@ -491,6 +491,7 @@ class _TextLineState extends State<TextLine> {
     final children = <WidgetSpan>[];
     for (final c in text.characters) {
       children.add(WidgetSpan(
+          alignment: PlaceholderAlignment.middle,
           child: Transform.translate(
               offset: offset,
               child: Text(
