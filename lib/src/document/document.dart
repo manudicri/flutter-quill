@@ -541,7 +541,7 @@ class Document {
 
   void close() {
     documentChangeObserver.close();
-    history.clear();
+    history.dispose();
   }
 
   /// Returns plain text representation of this document.

@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
+
 import '../../quill_delta.dart';
 import 'document.dart';
 import 'structs/doc_change.dart';
 import 'structs/history_changed.dart';
 
-class History {
+class History extends ChangeNotifier {
   History({
     this.ignoreChange = false,
     this.interval = 400,
@@ -43,6 +45,7 @@ class History {
 
   void clear() {
     stack.clear();
+    notifyListeners();
   }
 
   void record(Delta change, Delta before) {
@@ -51,11 +54,14 @@ class History {
     var undoDelta = change.invert(before);
     final timeStamp = DateTime.now().millisecondsSinceEpoch;
 
+    var isNewEntry = false;
+
     if (lastRecorded + interval > timeStamp && stack.undo.isNotEmpty) {
       final lastDelta = stack.undo.removeLast();
       undoDelta = undoDelta.compose(lastDelta);
     } else {
       lastRecorded = timeStamp;
+      isNewEntry = true;
     }
 
     if (undoDelta.isEmpty) return;
@@ -63,6 +69,10 @@ class History {
 
     if (stack.undo.length > maxStack) {
       stack.undo.removeAt(0);
+    }
+
+    if (isNewEntry) {
+      notifyListeners();
     }
   }
 
@@ -106,6 +116,7 @@ class History {
     ignoreChange = true;
     doc.compose(delta, ChangeSource.local);
     ignoreChange = false;
+    notifyListeners();
     return HistoryChanged(true, len);
   }
 
