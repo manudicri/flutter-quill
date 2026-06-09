@@ -42,8 +42,8 @@ class QuillController extends ChangeNotifier {
     QuillControllerConfig config = const QuillControllerConfig(),
   }) => QuillController(
     config: config,
-    document: Document(),
-    selection: const TextSelection.collapsed(offset: 0),
+    _document: Document(),
+    _selection: const TextSelection.collapsed(offset: 0),
   );
 
   final QuillControllerConfig config;

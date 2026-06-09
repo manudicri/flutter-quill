@@ -762,7 +762,7 @@ class _EditableBlock extends MultiChildRenderObjectWidget {
       textDirection: textDirection,
       padding: _padding,
       scrollBottomInset: scrollBottomInset,
-      decoration: decoration,
+      _decoration: decoration,
       contentPadding: _contentPadding,
     );
   }

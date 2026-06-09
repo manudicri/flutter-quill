@@ -84,7 +84,7 @@ class _SingleChildViewport extends SingleChildRenderObjectWidget {
 
   @override
   _RenderSingleChildViewport createRenderObject(BuildContext context) {
-    return _RenderSingleChildViewport(offset: offset);
+    return _RenderSingleChildViewport(_offset: offset);
   }
 
   @override
