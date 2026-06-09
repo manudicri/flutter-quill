@@ -84,7 +84,7 @@ class _SingleChildViewport extends SingleChildRenderObjectWidget {
 
   @override
   _RenderSingleChildViewport createRenderObject(BuildContext context) {
-    return _RenderSingleChildViewport(_offset: offset);
+    return _RenderSingleChildViewport(offset: offset);
   }
 
   @override
@@ -100,7 +100,8 @@ class _SingleChildViewport extends SingleChildRenderObjectWidget {
 class _RenderSingleChildViewport extends RenderBox
     with RenderObjectWithChildMixin<RenderBox>
     implements RenderAbstractViewport {
-  _RenderSingleChildViewport({required this._offset, RenderBox? child}) {
+  _RenderSingleChildViewport({required ViewportOffset offset, RenderBox? child})
+      : _offset = offset {
     this.child = child;
   }
 

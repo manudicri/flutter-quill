@@ -425,13 +425,14 @@ class RenderEditableTextBlock extends RenderEditableContainerBox
     required super.textDirection,
     required EdgeInsetsGeometry padding,
     required super.scrollBottomInset,
-    required this._decoration,
+    required Decoration decoration,
     super.children,
     EdgeInsets contentPadding = EdgeInsets.zero,
-  }) : _configuration = ImageConfiguration(textDirection: textDirection),
-       _savedPadding = padding,
-       _contentPadding = contentPadding,
-       super(container: block, padding: padding.add(contentPadding));
+  })  : _decoration = decoration,
+        _configuration = ImageConfiguration(textDirection: textDirection),
+        _savedPadding = padding,
+        _contentPadding = contentPadding,
+        super(container: block, padding: padding.add(contentPadding));
 
   EdgeInsetsGeometry _savedPadding;
   EdgeInsets _contentPadding;
@@ -762,7 +763,7 @@ class _EditableBlock extends MultiChildRenderObjectWidget {
       textDirection: textDirection,
       padding: _padding,
       scrollBottomInset: scrollBottomInset,
-      _decoration: decoration,
+      decoration: decoration,
       contentPadding: _contentPadding,
     );
   }

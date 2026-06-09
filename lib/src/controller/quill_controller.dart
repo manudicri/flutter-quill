@@ -27,8 +27,8 @@ typedef DeleteCallback = void Function(int cursorPosition, bool forward);
 
 class QuillController extends ChangeNotifier {
   QuillController({
-    required this._document,
-    required this._selection,
+    required Document document,
+    required TextSelection selection,
     this.config = const QuillControllerConfig(),
     this.keepStyleOnNewLine = true,
     this.onReplaceText,
@@ -36,14 +36,15 @@ class QuillController extends ChangeNotifier {
     this.onSelectionCompleted,
     this.onSelectionChanged,
     this.readOnly = false,
-  });
+  })  : _document = document,
+        _selection = selection;
 
   factory QuillController.basic({
     QuillControllerConfig config = const QuillControllerConfig(),
   }) => QuillController(
     config: config,
-    _document: Document(),
-    _selection: const TextSelection.collapsed(offset: 0),
+    document: Document(),
+    selection: const TextSelection.collapsed(offset: 0),
   );
 
   final QuillControllerConfig config;
